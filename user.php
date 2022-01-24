@@ -5,6 +5,7 @@ class User {
     public $password = "";
     public $password_hash = "";
     public $token = "";
+    public $authenticated = false;
     private $conn;
 
     //assume that email and password are unsafe
@@ -20,32 +21,26 @@ class User {
         $this->conn = $conn;
     }
 
-    function insert()
+    function authenticate()
     {
-        //does email already exist in DB?
-        $sql = "
-        INSERT INTO users(
-            email,
-            password,
-            token,
-            is_active
-            ) VALUES (
-            
-            '{$this->email}',
-            '{$this->password_hash}',
-            '{$this->token}',
-            '0'
-            )
-        ";
+        $sql = "SELECT id, email, password, token, is_active FROM users WHERE email='".$this->email."'";
+        
+        $result = $this->conn->query($sql);
 
-        //create mysql query 
-        $sqlQuery = mysqli_query($this->conn, $sql);
-
-        if (!$sqlQuery)
+        if ($row = $result->fetch_assoc())
         {
-            die ("MySQL query failed!" . mysqli_error($this->conn));
+            if (password_verify($this->password, $row["password"]))
+            {
+                $this->authenticated = true;
+            }
         }
+    
     }
+
+    function is_logged_in(){
+        return $this->authenticated;
+    }
+
 }
 
 

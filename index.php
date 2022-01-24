@@ -1,3 +1,22 @@
+<?php
+
+include_once "db.php";
+include_once "user.php";
+
+session_start();
+
+$logged_in = false;
+
+if (isset($_SESSION["user"]))
+{
+    $logged_in = true;
+    $user = unserialize($_SESSION["user"]);
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +27,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
+    <?php if ($logged_in): ?>
+    <button class="btn btn-primary" onclick="location = href='sign-up.php'">Log out</button>
+    <?php else: ?>
     <button class="btn btn-primary" onclick="location = href='sign-up.php'">Sign Up</button>
-    
+    <button class="btn btn-primary" onclick="location = href='login.php'">Login</button>
+    <?php endif ?>
 </body>
 </html>
