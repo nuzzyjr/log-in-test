@@ -28,7 +28,7 @@ if (isset($_SESSION["user"]))
 </head>
 <body>
     <?php if ($logged_in): ?>
-    <button class="btn btn-primary" onclick="location = href='sign-up.php'">Log out</button>
+    <button class="btn btn-primary" onclick="location = href='log-out.php'">Log out</button>
     <?php else: ?>
     <button class="btn btn-primary" onclick="location = href='sign-up.php'">Sign Up</button>
     <button class="btn btn-primary" onclick="location = href='login.php'">Login</button>

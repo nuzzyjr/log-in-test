@@ -33,6 +33,18 @@ class User {
             {
                 $this->authenticated = true;
             }
+            else
+            {
+                return 'Password incorrect';
+            }
+        }
+         //chcek if email exists
+        $email_search = "SELECT * FROM users WHERE email = '".$this->email."'";
+        $result = mysqli_query($this->conn, $email_search);
+    
+        if (mysqli_num_rows($result) == 0)
+        {
+            return "Email doesn't exist";
         }
     
     }

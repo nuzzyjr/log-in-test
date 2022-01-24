@@ -1,3 +1,8 @@
+
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,12 +20,13 @@
     <form style="padding-top:10px;" action="login-action.php" method="post">
     
         <label for="email" class="form-label">Email address</label>
-        <input type="email" name="email" class="form-control"/> <br/>
+        <input type="email" name="email" class="form-control" required/> <br/>
 
         <label for="password" class="form-label">Password</label>
-        <input type="password" name="password" class="form-control"/> <br/>
-
+        <input type="password" name="password" class="form-control" required/> <br/>
+        <p style="color:red" ><?php if (isset($_SESSION['login_err'])){ echo $_SESSION['login_err']; unset($_SESSION['login_err']); }?></p>
         <button type="submit" class="btn btn-primary">Login</button>
+       
     </form>
     </div>
 </body>

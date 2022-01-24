@@ -13,12 +13,13 @@ if ($user->is_logged_in())
     $_SESSION['user'] = serialize($user);
 
     header("Location: index.php");
-
-
 }
 else
 {
-    echo "Could not log in with these credentials";
+    session_start();
+    $err = $user->authenticate();   
+    $_SESSION['login_err'] = $err;
+    header("Location: login.php");
 }
 
 ?>
