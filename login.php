@@ -14,7 +14,7 @@ session_start();
 
 </head>
 <body>
-
+    
     <div style="width:33%; margin:auto;">
     <h1 style="padding-top:20px;">Enter your account details</h1>
     <form style="padding-top:10px;" action="login-action.php" method="post">

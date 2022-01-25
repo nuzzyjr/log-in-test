@@ -49,6 +49,7 @@ class User {
     
     }
 
+    //returns true if user is authenticted (ran the authenticate function with no errors)
     function is_logged_in(){
         return $this->authenticated;
     }

@@ -6,6 +6,8 @@ include_once 'user.php';
 //create user object
 $user = new User($conn, $_POST['email'], $_POST['password']);
 
+$user->authenticate();
+
 //check if user wants to be remembered
 if (isset($_POST["remember_me"]) && $_POST["remember_me"] == "Yes")
 {
@@ -17,8 +19,8 @@ if ($user->is_logged_in())
 {
     session_start();
     $_SESSION['user'] = serialize($user);
-
     header("Location: index.php");
+    
 }
 //if can't log in
 else
@@ -27,6 +29,7 @@ else
     $err = $user->authenticate();   
     $_SESSION['login_err'] = $err;
     header("Location: login.php");
+
 }
 
 ?>
