@@ -27,7 +27,7 @@ session_start();
         <!--Remember me-->
         <div style="height:30px; line-height: 30px;">
         <label for="remember_me" class="form-label" style="padding-right: 10px;" >Remember me?</label>
-        <input  type="checkbox" name="remember_me"  />
+        <input  type="checkbox" name="remember_me" value="Yes" />
         </div>
         <!--Error message-->
         <p style="margin:0px;padding:0px;padding-bottom:10px;color:red" ><?php if (isset($_SESSION['login_err'])){ echo $_SESSION['login_err']; unset($_SESSION['login_err']); }?></p>

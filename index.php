@@ -5,13 +5,26 @@ include_once "user.php";
 
 session_start();
 
+
+//assume not logged in
 $logged_in = false;
 
-if (isset($_SESSION["user"]))
+//check for log in cookie
+if (isset($_COOKIE["remember_me"]))
 {
     $logged_in = true;
-    $user = unserialize($_SESSION["user"]);
+    $user = unserialize($_COOKIE["remember_me"]);
 }
+//if no cookie check for session user
+elseif  (isset($_SESSION["user"]))
+{  
+    $logged_in = true;
+    $user = unserialize($_SESSION["user"]); 
+}
+
+var_dump($_COOKIE['remember_me']);
+
+
 
 ?>
 
