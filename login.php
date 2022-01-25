@@ -18,13 +18,19 @@ session_start();
     <div style="width:33%; margin:auto;">
     <h1 style="padding-top:20px;">Enter your account details</h1>
     <form style="padding-top:10px;" action="login-action.php" method="post">
-    
+        <!--EMAIL-->
         <label for="email" class="form-label">Email address</label>
         <input type="email" name="email" class="form-control" required/> <br/>
-
+        <!--Password-->
         <label for="password" class="form-label">Password</label>
         <input type="password" name="password" class="form-control" required/> <br/>
-        <p style="color:red" ><?php if (isset($_SESSION['login_err'])){ echo $_SESSION['login_err']; unset($_SESSION['login_err']); }?></p>
+        <!--Remember me-->
+        <div style="height:30px; line-height: 30px;">
+        <label for="remember_me" class="form-label" style="padding-right: 10px;" >Remember me?</label>
+        <input  type="checkbox" name="remember_me"  />
+        </div>
+        <!--Error message-->
+        <p style="margin:0px;padding:0px;padding-bottom:10px;color:red" ><?php if (isset($_SESSION['login_err'])){ echo $_SESSION['login_err']; unset($_SESSION['login_err']); }?></p>
         <button type="submit" class="btn btn-primary">Login</button>
        
     </form>
