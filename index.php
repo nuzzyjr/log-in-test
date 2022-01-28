@@ -23,8 +23,6 @@ elseif  (isset($_SESSION["user"]))
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,8 +35,22 @@ elseif  (isset($_SESSION["user"]))
 <body>
     <?php if ($logged_in): ?>
     <button class="btn btn-primary" onclick="location = href='log-out.php'" style="float:right;margin:15px;" >Log out</button>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <!--main form container-->
+        <div class="col-md-8">
+            
+        </div>
+
+        <div class="col-md-2"></div>
+    </div>
+
+
     <?php else: ?>
     <button class="btn btn-primary" onclick="location = href='login.php'" style="float:right;margin:15px;" >Log in/Sign up</button>
     <?php endif ?>
+
 </body>
 </html>
