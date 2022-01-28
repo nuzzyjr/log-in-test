@@ -13,18 +13,24 @@ session_start();
 
 </head>
 <body>
+    <!--Back button-->
+    <button style="float:right;margin:15px;" onclick="location = href='index.php'" class="btn btn-danger">Back</button>
 
     <div style="width:33%; margin:auto;">
     <h1 style="padding-top:20px;">Sign up for an account!</h1>
     <form style="padding-top:10px;" action="sign-up-action.php" method="post">
-    
+        <!--Email-->
         <label for="email" class="form-label">Email address</label>
         <input type="email" name="email" class="form-control" required/> <br/>
-
+        <!--Password-->
         <label for="password" class="form-label">Password</label>
         <input type="password" name="password" class="form-control" required /> <br/>
-        <p style="color:red" ><?php if (isset($_SESSION['sign_up_err'])) {echo $_SESSION['sign_up_err']; unset($_SESSION['sign_up_err']); }?></p>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <!--Already have an account-->
+        <a style="font-size:14px;" href="login.php">Already have an account?</a>
+        <!--Error-->
+        <p style="margin:0px;padding:0px;padding-bottom:10px;color:red" ><?php if (isset($_SESSION['sign_up_err'])) {echo $_SESSION['sign_up_err']; unset($_SESSION['sign_up_err']); }?></p>
+        <!--Submit Form-->
+        <button type="submit" class="btn btn-primary">Register</button>
     
         
 
