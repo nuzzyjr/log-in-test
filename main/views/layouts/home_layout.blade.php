@@ -1,7 +1,7 @@
 <?php
 
-include_once "db.php";
-include_once "user.php";
+include_once "C:/xampp/htdocs/John/log-in-test/libraries/db.php";
+include_once "C:/xampp/htdocs/John/log-in-test/libraries/user.php";
 
 session_start();
 
@@ -34,22 +34,9 @@ elseif  (isset($_SESSION["user"]))
 </head>
 <body>
     <?php if ($logged_in): ?>
-    <button class="btn btn-primary" onclick="location = href='log-out.php'" style="float:right;margin:15px;" >Log out</button>
-
-    <div class="row">
-        <div class="col-md-2"></div>
-
-        <!--main form container-->
-        <div class="col-md-8">
-            
-        </div>
-
-        <div class="col-md-2"></div>
-    </div>
-
-
+    @yield('logged_in')
     <?php else: ?>
-    <button class="btn btn-primary" onclick="location = href='login.php'" style="float:right;margin:15px;" >Log in/Sign up</button>
+    @yield('not_logged_in')
     <?php endif ?>
 
 </body>
