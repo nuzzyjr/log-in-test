@@ -5,7 +5,7 @@ include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/db.php";
 include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/user.php";
 
 //create user object
-$user = new User($conn, $_POST['email'], $_POST['password']);
+$user = new User($conn, $_POST['email'], $_POST['password'], "", "");
 
 $user->authenticate();
 

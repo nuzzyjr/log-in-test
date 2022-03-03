@@ -22,6 +22,12 @@ session_start();
         <!--Email-->
         <label for="email" class="form-label">Email address</label>
         <input type="email" name="email" class="form-control" required/> <br/>
+        <!--fname-->
+        <label for="fname" class="form-label">First name</label>
+        <input type="text" name="fname" class="form-control" required/> <br/>
+        <!--sname-->
+        <label for="sname" class="form-label">Second Name</label>
+        <input type="text" name="sname" class="form-control" required/> <br/>
         <!--Password-->
         <label for="password" class="form-label">Password</label>
         <input type="password" name="password" class="form-control" required /> <br/>

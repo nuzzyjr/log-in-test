@@ -20,13 +20,19 @@
             $sql = "
             INSERT INTO students(
             email,
+            fname,
+            sname,
             pword,
-            token,
+            rewardPoints,
+            token
             ) VALUES (
             
             '{$user->email}',
-            '{$user->password_hash}',
-            '{$user->token}',
+            '{$user->fname}',
+            '{$user->sname}',
+            '{$user->password_hash}', 
+            0,
+            '{$user->token}'
             )
             ";
 

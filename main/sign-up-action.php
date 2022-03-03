@@ -6,8 +6,11 @@ include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/user.php";
 
 $email = $_POST['email'];
 $password = $_POST['password'];
+$fname = $_POST['fname'];
+$sname = $_POST['sname'];
 
-$user = new User($conn, $email, $password);
+
+$user = new User($conn, $email, $password, $fname, $sname);
 //insert user into db
 if (insert($conn, $user)[0])
 {

@@ -3,6 +3,9 @@
 class User {
     public $email = "";
     public $password = "";
+    public $sname = "";
+    public $fname = "";
+    public $reward_points = 0;
     public $password_hash = "";
     public $token = "";
     public $authenticated = false;
@@ -10,11 +13,12 @@ class User {
 
     //assume that email and password are unsafe
 
-    function __construct($conn, $email, $password)
+    function __construct($conn, $email, $password, $fname, $sname)
     {
         $this->email = mysqli_real_escape_string($conn, $email);
         $this->password = mysqli_real_escape_string($conn, $password);
-
+        $this->fname = mysqli_real_escape_string($conn, $fname);
+        $this->sname = mysqli_real_escape_string($conn, $sname);
         $this->token = md5(rand().time());
         $this->password_hash = password_hash($password, PASSWORD_BCRYPT);
 
@@ -23,13 +27,13 @@ class User {
 
     function authenticate()
     {
-        $sql = "SELECT id, email, password, token, FROM students WHERE email='".$this->email."'";
+        $sql = "SELECT email, pword FROM students WHERE email='".$this->email."'";
         
         $result = $this->conn->query($sql);
 
         if ($row = $result->fetch_assoc())
         {
-            if (password_verify($this->password, $row["password"]))
+            if (password_verify($this->password, $row["pword"]))
             {
                 $this->authenticated = true;
             }
