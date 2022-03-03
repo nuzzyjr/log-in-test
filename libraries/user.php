@@ -23,7 +23,7 @@ class User {
 
     function authenticate()
     {
-        $sql = "SELECT id, email, password, token, is_active FROM users WHERE email='".$this->email."'";
+        $sql = "SELECT id, email, password, token, FROM students WHERE email='".$this->email."'";
         
         $result = $this->conn->query($sql);
 
@@ -39,7 +39,7 @@ class User {
             }
         }
          //chcek if email exists
-        $email_search = "SELECT * FROM users WHERE email = '".$this->email."'";
+        $email_search = "SELECT * FROM students WHERE email = '".$this->email."'";
         $result = mysqli_query($this->conn, $email_search);
     
         if (mysqli_num_rows($result) == 0)

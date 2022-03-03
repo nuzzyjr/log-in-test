@@ -6,7 +6,7 @@
        //does email already exist in DB?
 
 
-        $email_search = "SELECT * FROM users WHERE email = '".$user->email."'";
+        $email_search = "SELECT * FROM students WHERE email = '".$user->email."'";
         $result = mysqli_query($conn, $email_search);
     
 
@@ -18,17 +18,15 @@
         elseif (mysqli_num_rows($result) == 0)
         {
             $sql = "
-            INSERT INTO users(
+            INSERT INTO students(
             email,
-            password,
+            pword,
             token,
-            is_active
             ) VALUES (
             
             '{$user->email}',
             '{$user->password_hash}',
             '{$user->token}',
-            '0'
             )
             ";
 

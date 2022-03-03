@@ -1,8 +1,8 @@
 <?php
 
-include_once "C:/xampp/htdocs/John/log-in-test/libraries/insert.php";
-include_once "C:/xampp/htdocs/John/log-in-test/libraries/db.php";
-include_once "C:/xampp/htdocs/John/log-in-test/libraries/user.php";
+include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/insert.php";
+include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/db.php";
+include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/user.php";
 
 $email = $_POST['email'];
 $password = $_POST['password'];
