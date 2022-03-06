@@ -2,7 +2,9 @@
 
 <?php $this->startSection('logged_in'); ?>
  <button class="btn btn-primary" onclick="location = href='log-out.php'" style="float:right;margin:15px;" >Log out</button>
+ <p>
  
+ </p>
 <?php $this->stopSection(); ?>
 
 <?php $this->startSection('not_logged_in'); ?>

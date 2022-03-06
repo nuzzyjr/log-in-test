@@ -31,6 +31,12 @@ session_start();
         <!--Password-->
         <label for="password" class="form-label">Password</label>
         <input type="password" name="password" class="form-control" required /> <br/>
+        <!-- Student/Teacher radio-->
+        <p>I am a:</p>
+        <p>
+        Student<input type="radio" value="student" name="account_type" style="margin-left: 10px;" required/>
+        Teacher<input type="radio" value="teacher" name="account_type" style="margin-left: 10px;"/>
+        </p>
         <!--Already have an account-->
         <a style="font-size:14px;" href="login.php">Already have an account?</a>
         <!--Error-->

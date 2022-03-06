@@ -1,13 +1,19 @@
 <?php
 
 
-include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/db.php";
-include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/user.php";
+include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
+include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/user.php";
 
 //create user object
-$user = new User($conn, $_POST['email'], $_POST['password'], "", "");
+
+$user = new User($conn, $_POST['email'], $_POST['password'], "", "", "");
 
 $user->authenticate();
+
+
+
+//assign user object their name and account_type
+
 
 //check if user wants to be remembered
 if (isset($_POST["remember_me"]) && $_POST["remember_me"] == "Yes")
@@ -18,6 +24,7 @@ if (isset($_POST["remember_me"]) && $_POST["remember_me"] == "Yes")
 //if login successful
 if ($user->is_logged_in())
 {
+
     session_start();
     $_SESSION['user'] = serialize($user);
     header("Location: index.php");

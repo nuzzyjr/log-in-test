@@ -1,16 +1,16 @@
 <?php
 
-include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/insert.php";
-include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/db.php";
-include_once "C:/xampp/htdocs/Projects/log-in-test/libraries/user.php";
+include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/insert.php";
+include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
+include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/user.php";
 
 $email = $_POST['email'];
 $password = $_POST['password'];
 $fname = $_POST['fname'];
 $sname = $_POST['sname'];
+$account_type = $_POST['account_type'];
 
-
-$user = new User($conn, $email, $password, $fname, $sname);
+$user = new User($conn, $email, $password, $fname, $sname, $account_type);
 //insert user into db
 if (insert($conn, $user)[0])
 {
