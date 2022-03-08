@@ -9,14 +9,12 @@
 </head>
 <body>
     
-    <nav class="navbar">
-        <div class="d-flex" style="float:right;">
-            <button class="btn btn-primary" onclick="location = href='log-out.php'" >Log out</button>
-        </div>
-   
+    <!--NAVIGATION-->
+    <nav>
+        
     </nav>
 
-    <!--NAVIGATION-->
+    <!--MAIN PAGE-->
     <div class="container" style="margin-left:27.5vw;">
         <div class="row">
             <div class="col-md-12">
@@ -34,6 +32,10 @@
             </div>
         </div>
     </div>
+
+    <footer>
+
+    </footer>
 
 </body>
 </html>
