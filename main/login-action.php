@@ -10,6 +10,7 @@ $password = $_POST["password"];
 $details = array(
     $email,
     $password,
+    $account_type
 );
 
 $logged_in = check_login($email, $password);

@@ -15,6 +15,7 @@ $conn = get_conn();
 $details = array(
     $email,
     $password,
+    $account_type
 );
 
 //insert user into db
