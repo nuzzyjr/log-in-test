@@ -9,7 +9,7 @@ $password = $_POST["password"];
 
 $details = list($email,$password);
 
-$logged_in = login($email, $password);
+$logged_in = check_login($email, $password);
 
 
 //check if user wants to be remembered
