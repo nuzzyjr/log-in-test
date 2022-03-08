@@ -8,7 +8,7 @@ $logged_in = false;
 //check for log in cookie
 if (isset($_COOKIE["remember_me"]))
 {
-    $logged_in = true;
+ 
     $_SESSION["user"] = $_COOKIE["remember_me"];
     //check if stored user is student or teacher
     if (unserialize($_SESSION["user"])[2] == "student")
@@ -23,7 +23,14 @@ if (isset($_COOKIE["remember_me"]))
 //if no cookie check for session user
 elseif  (isset($_SESSION["user"]))
 {  
-    $logged_in = true;
+    if (unserialize($_SESSION["user"])[2] == "student")
+    {
+        header("Location: student_dashboard.php");
+    }
+    else
+    {
+        header("Location: teacher_dashboard.php");
+    }
 }
 
 ?>
