@@ -1,7 +1,5 @@
 <?php
 
-include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
-
 session_start();
 
 //assume not logged in
@@ -11,13 +9,12 @@ $logged_in = false;
 if (isset($_COOKIE["remember_me"]))
 {
     $logged_in = true;
-    $user = unserialize($_COOKIE["remember_me"]);
+    $_SESSION["user"] = unserialize($_COOKIE["remember_me"]);
 }
 //if no cookie check for session user
 elseif  (isset($_SESSION["user"]))
 {  
     $logged_in = true;
-    $user = unserialize($_SESSION["user"]); 
 }
 
 ?>
