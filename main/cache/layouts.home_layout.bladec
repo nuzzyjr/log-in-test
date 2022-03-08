@@ -1,7 +1,6 @@
 <?php
 
 include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
-include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/user.php";
 
 session_start();
 

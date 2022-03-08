@@ -2,12 +2,15 @@
 
 
 include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/login.php";
-include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
+
 
 $email = $_POST["email"];
 $password = $_POST["password"];
 
-$details = list($email,$password);
+$details = array(
+    $email,
+    $password,
+);
 
 $logged_in = check_login($email, $password);
 
@@ -42,7 +45,7 @@ else if ($logged_in == "teacher")
 else
 {
     session_start();
-    $err = $->authenticate();   
+    $err = $logged_in;  
     $_SESSION['login_err'] = $err;
     header("Location: login.php");
 
