@@ -51,3 +51,26 @@ img{
 .courses{
     margin: auto;
 }
+
+.contain_me {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1.1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.8fr 1fr 0.2fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . . . . . . ."
+      ". left-side left-side left-side right-side right-side right-side ."
+      ". left-side left-side left-side right-side right-side right-side ."
+      ". . . . . . . .";
+  }
+  
+  .left-side { grid-area: left-side; }
+  
+  .right-side { grid-area: right-side; }
+  
+  
+.accountbox{
+    height: 9vw;
+    width: 28vw;
+    overflow: auto;
+}
