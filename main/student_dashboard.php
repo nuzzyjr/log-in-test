@@ -38,15 +38,18 @@
         populate();
     ?>
     
-    <!--FOOTER-->
-    <footer class="footer">
-    
-        </br>Find us at:</br>
+ <!--FOOTER-->
+ <footer>
+    <div class="row section " style="margin:0px;">
+        <div class="col-md-12 footer" style="margin:0;" >
+        <p style="color:white;"></br>Find us at:</br>
         Instagram: @GibJohn</br>
         Facebook: @GibJohn</br>
         Email: gibjohn@gmail.com</br>
         Phone: 07473820938
-
+        </p>
+        </div>
+    </div>
     </footer>
 </body>
 </html>

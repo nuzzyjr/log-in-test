@@ -83,6 +83,22 @@ function get_courses(){
 
 function get_quizzes(){
 
+    $conn = get_conn();
+    $user_id = get_id();
+    
+    $query = "SELECT quizResultId, quizResult FROM quizresults WHERE studentId = '".$user_id."'";
+
+    $result = mysqli_query($conn, $query);
+
+    $quizresults = array();
+    while ($row = $result->fetch_assoc()) {
+        
+        array_push($quizresults, $row);
+    }
+
+    print_r($quizresults);
+
+    
 }
 
 ?>
