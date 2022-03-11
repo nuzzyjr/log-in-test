@@ -2,7 +2,7 @@
 
     //POPULATE COURSES
 
-    function populate()
+    function populate_courses()
     {
         
         include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
@@ -19,7 +19,7 @@
             
             echo'  
             
-            <div class="card" style="width:20vw; height:15vw;">
+            <div class="card" style="display:inline-block; width:20vw; height:15vw; margin:10px;">
             <h5 class="card-header">Course</h5>
             <div class="card-body">
                 <h5 class="card-title">'.$row["courseName"].'</h5>

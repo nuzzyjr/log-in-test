@@ -33,11 +33,13 @@
 
     <!--COURSE LISTINGS-->
         
-    <div >
+    <div>
+    
     <?php
         include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/course_listings.php";
-        populate();
+        populate_courses();
     ?>
+
     </div>
 
     
