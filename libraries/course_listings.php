@@ -17,11 +17,6 @@
 
         while ($row = $result->fetch_assoc()) {
             
-            if ($count / 3 == 0 or $count==1){
-              
-                echo'ouhuiuui';
-            }
-            
             echo'  
             
             <div class="card" style="width:20vw; height:15vw;">

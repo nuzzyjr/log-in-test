@@ -32,11 +32,15 @@
     </div>
 
     <!--COURSE LISTINGS-->
-  
+        
+    <div >
     <?php
         include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/course_listings.php";
         populate();
     ?>
+    </div>
+
+    
     
  <!--FOOTER-->
  <footer>
