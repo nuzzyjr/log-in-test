@@ -2,6 +2,22 @@
     include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
     //POPULATE COURSES
 
+    function create_card($name, $description, $id, $type){
+        echo'  
+            
+        <div class="card" style="display:inline-block; width:20vw; height:15vw; margin:10px;">
+        <h5 class="card-header">'.$type.'</h5>
+        <div class="card-body">
+            <h5 class="card-title">'.$name.'</h5>
+            <p class="card-text">'.$description.'</p>
+            <form method="POST" action="course_template.php">
+            <input type="hidden" name="hiddenvalue" value="'.$id.'"/>
+            <button class="btn btn-primary" type="submit">Join Course</button>
+            </form>
+        </div>
+        </div>';
+    }
+
     function populate_courses()
     {
         
@@ -16,22 +32,7 @@
 
         while ($row = $result->fetch_assoc()) {
             
-            echo'  
-            
-            <div class="card" style="display:inline-block; width:20vw; height:15vw; margin:10px;">
-            <h5 class="card-header">Course</h5>
-            <div class="card-body">
-                <h5 class="card-title">'.$row["courseName"].'</h5>
-                <p class="card-text">'.$row["courseDescription"].'</p>
-                <form method="POST" action="course_template.php">
-                <input type="hidden" name="hiddenvalue" value="'.$row["courseId"].'"/>
-                <button class="btn btn-primary" type="submit">Join Course</button>
-                </form>
-            </div>
-            </div>
-            
-            ';
-            
+            create_card($row['courseName'], $row['courseDescription'], $row['courseId'], 'Course');
   
         }
       
@@ -52,21 +53,7 @@
 
         while ($row = $result->fetch_assoc()) {
             
-            echo'  
-            
-            <div class="card" style="display:inline-block; width:20vw; height:15vw; margin:10px;">
-            <h5 class="card-header">Quiz</h5>
-            <div class="card-body">
-                <h5 class="card-title">'.$row["quizName"].'</h5>
-                <p class="card-text">'.$row["quizDescription"].'</p>
-                <form method="POST" action="quiz_template.php">
-                <input type="hidden" name="hiddenvalue" value="'.$row["quizId"].'"/>
-                <button class="btn btn-primary" type="submit">Take Quiz</button>
-                </form>
-            </div>
-            </div>
-            
-            ';
+            create_card($row['quizName'], $row['quizDescription'], $row['quizId'], 'Quiz');
             
         }
       
@@ -111,6 +98,25 @@
             }
         }
      
+    }
+
+    function searchbar($search_criteria){
+
+        $conn = get_conn();
+        $resultcourses = mysqli_query($conn, "SELECT courseName, courseDescription, courseId FROM courses WHERE courseName LIKE '%".$search_criteria."%'");
+        $resultquizzes = mysqli_query($conn, "SELECT quizName, quizDescription, quizId FROM quizzes WHERE quizName LIKE '%".$search_criteria."%'");
+
+        
+        while ($row = $resultcourses->fetch_assoc()) {
+            
+            create_card($row['courseName'], $row['courseDescription'], $row['courseId'], 'Course');
+            
+        }
+        while ($row = $resultquizzes->fetch_assoc()) {
+            
+            create_card($row['quizName'], $row['quizDescription'], $row['quizId'], 'Quiz');
+            
+        }
     }
 
     

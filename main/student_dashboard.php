@@ -46,8 +46,8 @@
             </form>
             </div>
             <div class="col-md-8">
-            <form class="d-flex">
-            <input class="form-control me-sm-2" type="text" placeholder="Search">
+            <form action="#" method="post" class="d-flex">
+            <input class="form-control me-sm-2" type="text" name="criteria" placeholder="Search">
             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
             <div class="col-md-2"></div>
@@ -68,6 +68,10 @@
             $choice = '1';
         }
 
+        if (isset($_POST['criteria'])){
+            $choice = "search";
+        }
+
         include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/course_listings.php";
         if ($choice == '1')
         {
@@ -78,9 +82,13 @@
         {   
             populate_courses();
         }
-        else
+        elseif ($choice == '3')
         {
             populate_quizzes();
+        }
+
+        else{
+            searchbar($_POST['criteria']);
         }
     ?>
 
