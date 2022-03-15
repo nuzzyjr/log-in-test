@@ -1,12 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script lang="javascript">
+      
+        if ( window.history.replaceState ) {
+         window.history.replaceState( null, null, window.location.href );
+    }
+
+    function formsubmit(){
+        document.getElementById("myform").submit();
+
+    }
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
     <link href="stylesheet.css" rel="stylesheet" type="text/css" />
     <link href="bootstrap-css/bootstrap.min.css" rel="stylesheet" />
+
 </head>
 <body>
     
@@ -20,7 +33,18 @@
     <div class="container">
         <!--SEARCH BAR-->
         <div class="row" style="margin-top:7vw;">
-            <div class="col-md-2"></div>
+            <div style="margin:0; padding:0;" class="col-md-2">
+            <form id="myform" method="POST" action="#">
+              
+                <center>See:</center>
+                <label for="filter">All</label>
+                <input class="form-check-input" type="radio" name="filter" value="1" onclick="formsubmit()" <?php if(!isset($_POST['filter']))  echo "checked='checked'"; ?> />
+                <label for="filter">Courses</label>
+                <input class="form-check-input" type="radio" name="filter" value="2" onclick="formsubmit()" <?php if(isset($_POST['filter'])) { if ($_POST['filter'] == '2') echo "checked='checked'"; }?> />
+                <label for="filter">Quizzes</label>
+                <input class="form-check-input" type="radio" name="filter" value="3" onclick="formsubmit()" <?php if(isset($_POST['filter'])) { if ($_POST['filter'] == '3') echo "checked='checked'"; }?> />
+            </form>
+            </div>
             <div class="col-md-8">
             <form class="d-flex">
             <input class="form-control me-sm-2" type="text" placeholder="Search">
@@ -36,13 +60,31 @@
     <div>
     
     <?php
+        
+        if (isset($_POST['filter'])){
+            $choice = $_POST['filter'];
+        }
+        else{
+            $choice = '1';
+        }
+
         include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/course_listings.php";
-        populate_courses();
+        if ($choice == '1')
+        {
+            populate_courses();
+            populate_quizzes();
+        }
+        elseif ($choice == '2')
+        {   
+            populate_courses();
+        }
+        else
+        {
+            populate_quizzes();
+        }
     ?>
 
     </div>
-
-    
     
  <!--FOOTER-->
  <footer>

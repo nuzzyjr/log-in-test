@@ -20,6 +20,13 @@ function get_id(){
     return $user_id;
 }
 
+function get_id_teacher(){
+
+    $email = unserialize($_SESSION["user"])[0];    
+    $user_id = current(get_conn()->query("SELECT teacherId FROM teachers WHERE email = '".$email."'")->fetch_assoc());
+    return $user_id;
+}
+
 
 function get_reward_points(){
 
