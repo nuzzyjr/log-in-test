@@ -38,6 +38,8 @@ img{
     background-color:black; 
     margin:0px;
     opacity: 0.85;
+    position: relative;
+    bottom: 0;
     
 }
 
@@ -88,4 +90,12 @@ img{
   }
   
   .Main { grid-area: Main; }
-  
+
+
+.min_height {
+    min-height: 75vh;
+}
+
+.tall {
+    height: 8vh;
+}

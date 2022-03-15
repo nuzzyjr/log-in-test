@@ -20,8 +20,7 @@
 
     </nav>
 
-    
-    <div class="contain_me">
+    <div class="contain_me min_height">
     <!--LEFT SIDE-->
     <div class="left-side">
     <p>My Reward Points: <?php get_reward_points(); ?></p>
@@ -49,8 +48,7 @@
         <a href="log-out.php" class="btn btn-danger">Log out</a>
     </div>
     </div>
-
-
+    
     <!--FOOTER-->
     <footer>
     <div class="row section " style="margin:0px;">

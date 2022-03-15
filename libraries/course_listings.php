@@ -1,10 +1,17 @@
 <?php
     include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
-    //POPULATE COURSES
 
     function create_card($name, $description, $id, $type){
-        echo'  
 
+
+        if ($type ==  'Quiz'){
+            $button_name = 'Take quiz';
+        }
+        else{
+            $button_name = 'Join Course';
+        }
+
+        echo'  
         <div class="card" style="display:inline-block; width:20vw; height:15vw; margin:10px;">
         <h5 class="card-header">'.$type.'</h5>
         <div class="card-body">
@@ -12,7 +19,7 @@
             <p class="card-text">'.$description.'</p>
             <form method="POST" action="course_template.php">
             <input type="hidden" name="hiddenvalue" value="'.$id.'"/>
-            <button class="btn btn-primary" type="submit">Join Course</button>
+            <button class="btn btn-primary" type="submit">'.$button_name.'</button>
             </form>
         </div>
         </div>';

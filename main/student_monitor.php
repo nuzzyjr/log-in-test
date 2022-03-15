@@ -30,7 +30,7 @@
     </nav>
 
     
-    <div class="contain_me">
+    <div class="contain_me min_height">
     <!--LEFT SIDE-->
     <div class="left-side">
     <h4>My courses</h4>

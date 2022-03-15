@@ -18,24 +18,27 @@
 
 
     <!--MAIN PAGE-->
-    <div class="container" style="margin-left:27.5vw;">
-        <div class="row">
+    
+
+    <div class="container min_height" style="width:44vw;">
+        <div class="row" style="padding-top: 15vh;">
             <div class="col-md-12">
-            <button class="btn btn-primary" onclick="location = href='student_monitor.php'" style="margin:15px; width:40vw;" >Monitor Students</button>
+            <button class="btn btn-primary tall" onclick="location = href='student_monitor.php'" style="margin:15px; width:40vw;" >Monitor Students</button>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-            <button class="btn btn-danger" onclick="location = href='create_quiz.php'" style="margin:15px;width:40vw;" >Create Quiz</button>
+            <button class="btn btn-danger tall" onclick="location = href='create_quiz.php'" style="margin:15px;width:40vw;" >Create Quiz</button>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-            <button class="btn btn-primary" onclick="location = href='create_course.php'" style="margin:15px;width:40vw;" >Create Course</button>
+            <button class="btn btn-primary tall" onclick="location = href='create_course.php'" style="margin:15px;width:40vw;" >Create Course</button>
             </div>
         </div>
     </div>
 
+    
    <!--FOOTER-->
    <footer>
     <div class="row section " style="margin:0px;">
