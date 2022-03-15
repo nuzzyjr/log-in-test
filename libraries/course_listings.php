@@ -4,7 +4,7 @@
 
     function create_card($name, $description, $id, $type){
         echo'  
-            
+
         <div class="card" style="display:inline-block; width:20vw; height:15vw; margin:10px;">
         <h5 class="card-header">'.$type.'</h5>
         <div class="card-body">
@@ -70,12 +70,12 @@
 
         if($result->num_rows === 0){
         echo "<option value='none'>None</option>";
-            
         }
+        
         else{
             while ($row = $result->fetch_assoc()) {
             
-                echo "<option value='".$row['courseName']."'>".$row['courseName']."</option>";
+                echo "<option name='courseOption' value='".$row['courseName']."'>".$row['courseName']."</option>";
                 
             }
         }
@@ -93,7 +93,7 @@
         else{
             while ($row = $result->fetch_assoc()) {
             
-                echo "<option value='".$row['quizName']."'>".$row['quizName']."</option>";
+                echo "<option  name='quizOption' value='".$row['quizName']."'>".$row['quizName']."</option>";
                 
             }
         }
@@ -117,6 +117,12 @@
             create_card($row['quizName'], $row['quizDescription'], $row['quizId'], 'Quiz');
             
         }
+    }
+
+    function course_table($selected){
+
+        echo '<tr><td>awdoiajwodinawoidnawdoiawdnionwoid </td></tr>';
+        
     }
 
     

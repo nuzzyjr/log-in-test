@@ -13,6 +13,13 @@
     <title>Student Monitor</title>
     <link href="stylesheet.css" rel="stylesheet" type="text/css" />
     <link href="bootstrap-css/bootstrap.min.css" rel="stylesheet" />
+    <script lang="javascript">
+      
+        if ( window.history.replaceState ) {
+           window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
+
 </head>
 <body>
       
@@ -27,19 +34,29 @@
     <!--LEFT SIDE-->
     <div class="left-side">
     <h4>My courses</h4>
-    <select onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();' class="form-select" style="width:25vw;" >
-    <?php teacher_course_options(); ?>
+    <form method="post" action="#">
+    <select onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();this.form.submit()' class="form-select"  style="width:25vw;" >
+    <?php teacher_course_options('null'); ?>
     </select>
+    </form>
+    <table class="table" style="width: 30vw;">
+        <?php if (isset($_POST['courseOption'])){ course_table($_POST['courseOption']); } ?>
+    </table>
     </div>
     
     
     <!--RIGHT SIDE-->
     <div class="right-side">
     <h4>Quiz Results</h4>
-    <select onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();' class="form-select"  style="width:25vw;" >
+    <form method="post" action="#">
+    <select onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();this.form.submit()' class="form-select"  style="width:25vw;" >
     <?php teacher_quiz_options(); ?>
     </select>
-    
+    </form>
+
+    <table class="table" style="width: 30vw;">
+        
+    </table>   
     </div>
     </div>
 
