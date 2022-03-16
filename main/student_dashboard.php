@@ -57,7 +57,7 @@
 
     <!--COURSE LISTINGS-->
         
-    <div style="margin-left: 5vw; width: 90vw;">
+    <div style="margin-left: 7vw; width: 90vw;">
     
     <?php
         

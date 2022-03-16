@@ -82,7 +82,7 @@
         else{
             while ($row = $result->fetch_assoc()) {
             
-                echo "<option name='courseOption' value='".$row['courseName']."'>".$row['courseName']."</option>";
+                echo "<option name='courseOption' value='".$row['courseName']."' id='courseName' >".$row['courseName']."</option>";
                 
             }
         }
@@ -100,7 +100,7 @@
         else{
             while ($row = $result->fetch_assoc()) {
             
-                echo "<option  name='quizOption' value='".$row['quizName']."'>".$row['quizName']."</option>";
+                echo "<option  name='quizOption' value='".$row['quizName']." id='quizName'>".$row['quizName']."</option>";
                 
             }
         }

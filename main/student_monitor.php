@@ -18,6 +18,14 @@
         if ( window.history.replaceState ) {
            window.history.replaceState( null, null, window.location.href );
         }
+
+        function get_name(id){
+            var selected = document.getElementById(id);
+            var strSelected = selected.options[e.selectedIndex].text;
+            alert(strSelected);
+            alert("adw");
+        }
+        
     </script>
 
 </head>
@@ -35,12 +43,12 @@
     <div class="left-side">
     <h4>My courses</h4>
     <form method="post" action="#">
-    <select onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();this.form.submit()' class="form-select"  style="width:25vw;" >
-    <?php teacher_course_options('null'); ?>
+    <select onchange="get_name('courseName')" class="form-select"  style="width:25vw;" >
+    <?php teacher_course_options(); ?>
     </select>
     </form>
     <table class="table" style="width: 30vw;">
-        <?php if (isset($_POST['courseOption'])){ course_table($_POST['courseOption']); } ?>
+        
     </table>
     </div>
     
@@ -49,7 +57,7 @@
     <div class="right-side">
     <h4>Quiz Results</h4>
     <form method="post" action="#">
-    <select onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();this.form.submit()' class="form-select"  style="width:25vw;" >
+    <select onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();' class="form-select"  style="width:25vw;" >
     <?php teacher_quiz_options(); ?>
     </select>
     </form>
