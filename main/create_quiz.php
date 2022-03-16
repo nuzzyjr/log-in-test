@@ -13,8 +13,22 @@
     <link href="stylesheet.css" rel="stylesheet" type="text/css" />
     <link href="bootstrap-css/bootstrap.min.css" rel="stylesheet" />
     <script lang="javascript">
- 
+      
+    count = 1;;
+    function add_question(loop_num){
+
+        for (let i = 0; i < loop_num; i++) {
+            
+            var quizform = document.getElementById('quizForm');
+  
+            var current = quizform.innerHTML;
+            var question = '<label for="q'+count+'">Q'+count+': Title</label><input type="text" placeholder="What is cat in spanish?" id="q'+count+'" name="q'+count+'" class="form-control"/><br/><p>Please select the option with the correct answer</p><input type="radio" name="radioq'+count+'" id="radioq'+count+'option1" style="float:left; margin-right: 1vw; margin-left:1vw;" class="form-check-input"/><input style="width:30%" type="text" placeholder="Option 1" id="q'+count+'option1" name="q'+count+'option1" class="form-control"/><input type="radio" name="radioq'+count+'"  id="radioq'+count+'option2" style="float:left; margin-right: 1vw; margin-left:1vw;" class="form-check-input"/><input style="width:30%" type="text" placeholder="Option 2" id="q'+count+'option2" name="q'+count+'option2" class="form-control"/><input type="radio" name="radioq'+count+'"  id="radioq'+count+'option3" style="float:left; margin-right: 1vw; margin-left:1vw;" class="form-check-input"/><input style="width:30%" type="text" placeholder="Option 3" id="q'+count+'option3" name="q'+count+'option3" class="form-control"/><br/>';
+            quizform.innerHTML = current + question;
+            count += 1;
     
+        }
+        
+    }
  
     </script>
 </head>
@@ -37,7 +51,11 @@
             <br/>
             <label for="quizDescription">Quiz Description</label>
             <input type="text" placeholder="This quiz will test your skills on..." id="quizDescription" name="quizDescription" class="form-control"/><br/>
-            <button class="btn btn-primary" type="button" id="addquestion" >Add Question</button><br/>
+            <p>Number of questions</p>
+            <button class="btn btn-outline-primary" onclick="add_question(5);" id="addQuestion5" >5</button>
+            <button class="btn btn-primary" onclick="add_question(10);" id="addQuestion10" >10</button>
+            <button class="btn btn-primary" onclick="add_question(15);" id="addQuestion15" >15</button>
+            <button class="btn btn-primary"  onclick="add_question(20);" id="addQuestion20" >20</button>
 
         </form>
 
@@ -57,5 +75,7 @@
         </div>
     </div>
     </footer>
+
+    
 </body>
 </html>
