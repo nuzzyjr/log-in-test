@@ -36,11 +36,11 @@ for ($i = 1; $i <= $loop_num; $i++){
     $qname.
     '
     <p>
-    <input type="radio" class="form-check-input" name="radioq'.strval($i).'" id="q'.strval($i).'option1" required /> '.$option1.'
+    <input type="radio" class="form-check-input" name="radioq'.strval($i).'" id="q'.strval($i).'option1" value="'.$option1.'" required /> '.$option1.'
 
-    <input type="radio" class="form-check-input" name="radioq'.strval($i).'" id="q'.strval($i).'option2" /> '.$option2.'
+    <input type="radio" class="form-check-input" name="radioq'.strval($i).'" id="q'.strval($i).'option2" value="'.$option2.'" /> '.$option2.'
 
-    <input type="radio" class="form-check-input" name="radioq'.strval($i).'" id="q'.strval($i).'option3" /> '.$option3.'
+    <input type="radio" class="form-check-input" name="radioq'.strval($i).'" id="q'.strval($i).'option3" value="'.$option3.'" /> '.$option3.'
 
     </p>';
 }

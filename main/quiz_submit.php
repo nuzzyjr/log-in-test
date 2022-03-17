@@ -1,26 +1,10 @@
-<?php
-    include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
-    function insert_content(){
-        $result =mysqli_query(get_conn(), "SELECT quizName, quizContent FROM quizzes WHERE quizId='".$_POST['hiddenvalue']."'");
-    
-        while ($row = mysqli_fetch_assoc($result))
-        {
-
-            echo '<h3>'.$row['quizName'].'</h3>';
-            echo $row['quizContent'];
-
-
-        }
-    }
-    
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+    <title>Quiz Submitted</title>
     <link href="stylesheet.css" rel="stylesheet" type="text/css" />
     <link href="bootstrap-css/bootstrap.min.css" rel="stylesheet" />
 </head>
@@ -33,12 +17,12 @@
     </nav>
     
     <div class="quiz_content min_height">
-        <br/>
-        <form action="quiz_submit.php" method="POST">
-            <?php insert_content(); ?>
-            <br/>
-            <button type="submit" style="float:right" class="btn btn-primary">Submit</button>
-        </form>
+    
+    <?php 
+
+    ?>
+
+
     </div>
 
     <!--FOOTER-->
