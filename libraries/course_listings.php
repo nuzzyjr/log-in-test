@@ -12,12 +12,12 @@
         }
 
         echo'  
-        <div class="card" style="display:inline-block; width:20vw; height:15vw; margin:10px;">
+        <div class="card" style="display:inline-block; width:20vw; height:30vh; margin:10px;">
         <h5 class="card-header">'.$type.'</h5>
         <div class="card-body">
             <h5 class="card-title">'.$name.'</h5>
-            <p class="card-text">'.$description.'</p>
-            <form method="POST" action="course_template.php">
+            <p class="card-text" style="height:10vh;">'.$description.'</p>
+            <form method="POST" action="'.$type.'_template.php">
             <input type="hidden" name="hiddenvalue" value="'.$id.'"/>
             <button class="btn btn-primary" type="submit">'.$button_name.'</button>
             </form>

@@ -99,3 +99,10 @@ img{
 .tall {
     height: 8vh;
 }
+
+.quiz_content{
+
+    width:70%;
+    text-align: center;
+    margin-left:15vw;
+}

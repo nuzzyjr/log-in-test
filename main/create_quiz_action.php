@@ -1,4 +1,5 @@
 <?php
+include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
 
 $quizName = $_POST['quizName'];
 $quizDescription = $_POST['quizDescription'];
@@ -17,24 +18,38 @@ else{
 }
 
 
+
 $quizContent = "";
 
 for ($i = 1; $i <= $loop_num; $i++){
 
-    $qNum = 'q'.strval($i);
-    $qname = $_POST[$qNum];
+    $qname = $_POST['q'.strval($i)];
 
-    $qname = '<p>'.$qNum.': '.$qname.'</p>';
+    $qname = '<p>'.'Q'.strval($i).': '.$qname.'</p>';
 
-    $option1 = '<p>'.$_POST['q'.strval($i).'option1'].'</p>';
-    $option2 = '<p>'.$_POST['q'.strval($i).'option2'].'</p>';
-    $option3 = '<p>'.$_POST['q'.strval($i).'option3'].'</p><br/>';
+    $option1 = $_POST['q'.strval($i).'option1'];
+    $option2 = $_POST['q'.strval($i).'option2'];
+    $option3 = $_POST['q'.strval($i).'option3'];
 
-    $quizContent = $quizContent.$qname.$option1.$option2.$option3;
+    $quizContent = $quizContent.
+    
+    $qname.
+    '
+    <p>
+    <input type="radio" class="form-check-input" name="radioq'.strval($i).'" id="q'.strval($i).'option1" required /> '.$option1.'
 
+    <input type="radio" class="form-check-input" name="radioq'.strval($i).'" id="q'.strval($i).'option2" /> '.$option2.'
+
+    <input type="radio" class="form-check-input" name="radioq'.strval($i).'" id="q'.strval($i).'option3" /> '.$option3.'
+
+    </p>';
 }
 
 
-echo $quizContent;
+$sql = "INSERT INTO quizzes (quizName, quizDescription, quizContent) VALUES ('".$quizName."','".$quizDescription."','".$quizContent."') ";
+$conn = get_conn();
+
+mysqli_query($conn, $sql);
+
 
 ?>
