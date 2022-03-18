@@ -12,7 +12,7 @@
     <nav class="sticky-top navbar">
         
         <img src="images/book.png" style="margin-left:48.25%; max-width:55px; border-radius:55px; border: 3.5px solid white; box-shadow:none; max-height: 4vw; " onclick="Location: href='index.php'" />
-        <a style="float:right; margin-right: 10px;" href="student_dashboard.php" class="btn btn-danger">Back</a>
+        <a style="float:right; margin-right: 10px;" href="student_dashboard.php" class="btn btn-danger">Home</a>
 
     </nav>
     
@@ -20,30 +20,24 @@
     
     <?php 
         include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
+        include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/quiz_results.php";
+
         $quizId = $_POST['hiddenId'];
-        echo $quizId;
         
         //get answers list
         
-        $answers_str = mysqli_query(get_conn(), "SELECT quizAnswers FROM quizzes WHERE quizId ='".$quizId."'")->fetch_assoc();
+        $answers = mysqli_query(get_conn(), "SELECT quizAnswers FROM quizzes WHERE quizId ='".$quizId."'");
 
-        $score = 0;
-
-        $loop = true;
-        $i = 1;
-        while ($loop){
-
-            if (isset($_POST['radioq'.$i])){
-                if ($_POST['radioq'.$i] == $answers[$i]){$score+=1;}
-            }
-
-            else{
-                $loop = false;
-            }
-
-            $i += 1;
+        while ($row = $answers->fetch_assoc()) {
+            $answers_str = $row['quizAnswers'];
         }
 
+        $answers_arr = explode(",", $answers_str);
+
+        $score = calculate_score($answers_arr);
+        echo '<h1>You scored: '.$score.'</h1>';
+
+        store_score($score);
     ?>
 
 
