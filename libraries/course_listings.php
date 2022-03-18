@@ -18,7 +18,7 @@
             <h5 class="card-title">'.$name.'</h5>
             <p class="card-text" style="height:10vh;">'.$description.'</p>
             <form method="POST" action="'.$type.'_template.php">
-            <input type="hidden" name="hiddenvalue" value="'.$id.'"/>
+            <input type="hidden" name="hiddenId" value="'.$id.'"/>
             <button class="btn btn-primary" type="submit">'.$button_name.'</button>
             </form>
         </div>

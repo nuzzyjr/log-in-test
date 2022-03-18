@@ -19,6 +19,30 @@
     <div class="quiz_content min_height">
     
     <?php 
+        include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
+        $quizId = $_POST['hiddenId'];
+        echo $quizId;
+        
+        //get answers list
+        
+        $answers_str = mysqli_query(get_conn(), "SELECT quizAnswers FROM quizzes WHERE quizId ='".$quizId."'")->fetch_assoc();
+
+        $score = 0;
+
+        $loop = true;
+        $i = 1;
+        while ($loop){
+
+            if (isset($_POST['radioq'.$i])){
+                if ($_POST['radioq'.$i] == $answers[$i]){$score+=1;}
+            }
+
+            else{
+                $loop = false;
+            }
+
+            $i += 1;
+        }
 
     ?>
 

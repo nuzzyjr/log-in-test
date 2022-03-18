@@ -1,15 +1,14 @@
 <?php
     include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
     function insert_content(){
-        $result =mysqli_query(get_conn(), "SELECT quizName, quizContent FROM quizzes WHERE quizId='".$_POST['hiddenvalue']."'");
-    
+        $quizId = $_POST['hiddenId'];
+        $result =mysqli_query(get_conn(), "SELECT quizName, quizContent FROM quizzes WHERE quizId='".$quizId."'");
+        
         while ($row = mysqli_fetch_assoc($result))
         {
 
             echo '<h3>'.$row['quizName'].'</h3>';
             echo $row['quizContent'];
-
-
         }
     }
     
@@ -35,6 +34,7 @@
     <div class="quiz_content min_height">
         <br/>
         <form action="quiz_submit.php" method="POST">
+            <?php echo '<input type="hidden" name="hiddenId" value="'.$_POST['hiddenId'].'" />';  ?>
             <?php insert_content(); ?>
             <br/>
             <button type="submit" style="float:right" class="btn btn-primary">Submit</button>
