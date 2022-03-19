@@ -33,11 +33,13 @@
         }
 
         $answers_arr = explode(",", $answers_str);
+        $total = count($answers_arr) - 1;
 
         $score = calculate_score($answers_arr);
-        echo '<h1>You scored: '.$score.'</h1>';
+        echo '<h1>You scored: '.$score.'/'.$total.'</h1>';
+        echo '<form action="student_dashboard.php"><button type="submit" class="btn btn-primary" >Back to dashboard</button></form>';
 
-        store_score($score);
+        store_score($score,$total,$quizId);
     ?>
 
 

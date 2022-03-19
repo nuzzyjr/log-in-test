@@ -19,11 +19,13 @@
            window.history.replaceState( null, null, window.location.href );
         }
 
-        function get_name(id){
-            var selected = document.getElementById(id);
-            var strSelected = selected.options[e.selectedIndex].text;
-            alert(strSelected);
-            alert("adw");
+        function show_courses(){
+
+            myselect = document.getElementById('myselect');
+            myspan = document.getElementById('mycourses');
+           
+
+        
         }
         
     </script>
@@ -43,13 +45,13 @@
     <div class="left-side">
     <h4>My courses</h4>
     <form method="post" action="#">
-    <select onchange="get_name('courseName')" class="form-select"  style="width:25vw;" >
+    <select onchange="show_courses()" class="form-select" id="myselect" style="width:25vw;" >
     <?php teacher_course_options(); ?>
     </select>
     </form>
-    <table class="table" style="width: 30vw;">
-        
-    </table>
+    <span id="mycourses">
+
+    </span>
     </div>
     
     

@@ -10,14 +10,18 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link href="stylesheet.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
 <body>
-    <!--Back button-->
-    <button style="float:right; margin:15px;" onclick="location = href='index.php'" class="btn btn-danger">Back</button>    
+    <!--NAV BAR-->
+    <nav class="sticky-top navbar">
+    <img src="images/book.png" style="margin-left:48.25%; max-width:55px; border-radius:55px; border: 3.5px solid white; box-shadow:none; max-height: 4vw; " onclick="Location: href='index.php'" />
+    <a style="float:right; margin-right: 10px;" href="index.php" class="btn btn-danger">Back</a>
+    </nav>
 
-    <div style="width:33%; margin:auto;">
+    <div style="width:33%; margin:auto;" class="min_height">
     <h1 style="padding-top:20px;">Please log in</h1>
     <form style="padding-top:10px;" action="login-action.php" method="post">
         <!--EMAIL-->
@@ -41,5 +45,18 @@ session_start();
         
     </form>
     </div>
+    <!--FOOTER-->
+    <footer>
+    <div class="row section " style="margin:0px;">
+        <div class="col-md-12 footer" style="margin:0;" >
+        <p style="color:white;"></br>Find us at:</br>
+        Instagram: @GibJohn</br>
+        Facebook: @GibJohn</br>
+        Email: gibjohn@gmail.com</br>
+        Phone: 07473820938
+        </p>
+        </div>
+    </div>
+    </footer>
 </body>
 </html>

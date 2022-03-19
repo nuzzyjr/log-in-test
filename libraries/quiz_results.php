@@ -26,10 +26,15 @@
         return $score;
     }
 
-    function store_score($score){
+    function store_score($score,$total,$quizId){
 
-        mysqli_query(get_conn(), "INSERT INTO ");
+        $percentage = ($score / $total) * 100;
+        $percentage_str = strval($percentage).'%';
 
+        mysqli_query(get_conn(), "INSERT INTO quizResults (studentId, quizId, quizResult, dateOfCompletion) VALUES ('".get_id()."','".$quizId."','".$percentage_str."','".date("Y-m-d")."') ");
+
+        add_reward_points($percentage);
     }
+
 
 ?>

@@ -39,9 +39,55 @@
            mySpan.innerHTML += question;
            count += 1;
        }
+
        
-       event.preventDefault()
+       
+    }
+
+    function add_values(){
+
+        if( document.getElementById("addQuestion5")){
+            if (document.getElementById("addQuestion5").class == "btn btn-outline-primary"){
+                count = 5;
+            } 
         }
+        if( document.getElementById("addQuestion10")){
+            if (document.getElementById("addQuestion10").class == "btn btn-outline-primary"){
+                count = 10;
+            } 
+        }
+        if( document.getElementById("addQuestion15")){
+            if (document.getElementById("addQuestion15").class == "btn btn-outline-primary"){
+                count =15;
+            } 
+        }
+        if( document.getElementById("addQuestion20")){
+            if (document.getElementById("addQuestion20").class == "btn btn-outline-primary"){
+                count = 20;
+            } 
+        }
+
+        for (let i = 1; i < count; i++) {
+            for (let x= 1; x < 4; x++){
+                if (document.getElementById('q'+i+'option'+x).value){
+                
+                    document.getElementById('radioq'+i+'option'+x).value = document.getElementById('q'+i+'option'+x).value;
+                   
+                    var quizForm =  document.getElementById("quizForm");
+                    quizForm.action = 'create_quiz_action.php';
+                    quizForm.submit();
+                }
+                else{
+                    break;
+                }
+              
+            }
+ 
+        }
+        
+    }
+ 
+
  
     </script>
 </head>
@@ -55,8 +101,7 @@
     </nav>
 
     <div class="container min_height">
-
-        <form id="quizForm" action="create_quiz_action.php" method="POST" style="margin:auto; width:60%; padding-top: 3vh;" >
+        <form id="quizForm" method="POST" style="margin:auto; width:60%; padding-top: 3vh;" >
 
             <h3>Create Quiz</h3>  
             <p>Number of questions</p>
@@ -75,7 +120,7 @@
             <span id="mySpan">
            
             </span>
-            <button type="submit" class="btn btn-primary">Create Quiz</button>
+            <button type="button" id="submitform"  onclick="add_values()" class="btn btn-primary">Create Quiz</button>
         </form>
         <br/>
 

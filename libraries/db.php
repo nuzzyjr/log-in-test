@@ -108,4 +108,41 @@ function get_quizzes(){
     
 }
 
+function add_reward_points($score){
+
+    if ($score >= 90 ){
+        $reward_points = 10;
+    }
+    elseif($score >=75){
+        $reward_points = 7;
+    }
+    elseif($score >=50){
+        $reward_points = 5;
+    }
+    elseif($score >=30){
+        $reward_points = 2;
+    }
+
+    else{
+        $reward_points = 0;
+    }
+
+    if ($reward_points != 0){
+
+        $result = mysqli_query(get_conn(), "SELECT rewardPoints FROM students WHERE studentId ='".get_id()."'");
+        
+        while ($row = $result->fetch_assoc()) {
+            $current_points = $row['rewardPoints'];
+        }
+
+        
+        $new_points = intval($current_points) + $reward_points;
+
+        strval($new_points);
+ 
+        mysqli_query(get_conn(), "UPDATE students SET rewardPoints='".$new_points."' WHERE studentId='".get_id()."'");
+    }
+
+}
+
 ?>
