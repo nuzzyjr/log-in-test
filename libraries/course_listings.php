@@ -70,10 +70,7 @@
     function teacher_course_options(){
 
         $conn = get_conn();
-        $result = mysqli_query($conn, "SELECT courseName
-        FROM enrols
-        INNER JOIN courses
-        ON enrols.courseId = courses.courseId WHERE enrols.teacherId = '".get_id_teacher()."'");
+        $result = mysqli_query($conn, "SELECT courseName FROM courses WHERE teacherId='".get_id_teacher()."'");
 
         if($result->num_rows === 0){
         echo "<option value='none'>None</option>";
@@ -128,8 +125,10 @@
 
     function course_table($selected){
 
-        echo '<tr><td>awdoiajwodinawoidnawdoiawdnionwoid </td></tr>';
-        
+        $sql = "SELECT fname, sname, currentProgress FROM enrols INNER JOIN students ON enrols.studentId = students.studentId WHERE courseId = '".$courseId."'";
+
+        $result = mysqli_query(get_conn(), $sql);
+        echo'adwdadwa';
     }
 
     

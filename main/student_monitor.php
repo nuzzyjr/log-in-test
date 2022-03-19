@@ -21,11 +21,10 @@
 
         function show_courses(){
 
-            myselect = document.getElementById('myselect');
+            myselect = document.getElementById('myselect').value;
             myspan = document.getElementById('mycourses');
-           
-
         
+            myspan.innerHTML = '<?php course_table("'+myselect+'") ?>';
         }
         
     </script>
@@ -45,7 +44,7 @@
     <div class="left-side">
     <h4>My courses</h4>
     <form method="post" action="#">
-    <select onchange="show_courses()" class="form-select" id="myselect" style="width:25vw;" >
+    <select onchange="show_courses()" class="form-select" id="myselect" style="width:25vw;"  onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();' >
     <?php teacher_course_options(); ?>
     </select>
     </form>
