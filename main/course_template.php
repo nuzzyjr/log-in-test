@@ -2,7 +2,7 @@
     include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
     function insert_content(){
        
-        $result =mysqli_query(get_conn(), "SELECT courseContent FROM courses WHERE courseId='".$_POST['hiddenvalue']."'");
+        $result =mysqli_query(get_conn(), "SELECT courseContent FROM courses WHERE courseId='".$_POST['hiddenId']."'");
         
         while ($row = mysqli_fetch_assoc($result))
         {

@@ -1,7 +1,11 @@
 <?php 
     include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/db.php";
     include_once "C:/xampp/htdocs/Projects/GibJohn/libraries/course_listings.php";
-    
+    $currentId = '';
+
+    function change_id(){
+        $currentId = '2';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -13,20 +17,15 @@
     <title>Student Monitor</title>
     <link href="stylesheet.css" rel="stylesheet" type="text/css" />
     <link href="bootstrap-css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <script lang="javascript">
       
         if ( window.history.replaceState ) {
            window.history.replaceState( null, null, window.location.href );
         }
+     
 
-        function show_courses(){
-
-            myselect = document.getElementById('myselect').value;
-            myspan = document.getElementById('mycourses');
-        
-            myspan.innerHTML = '<?php course_table("'+myselect+'") ?>';
-        }
-        
     </script>
 
 </head>
@@ -44,13 +43,15 @@
     <div class="left-side">
     <h4>My courses</h4>
     <form method="post" action="#">
-    <select onchange="show_courses()" class="form-select" id="myselect" style="width:25vw;"  onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();' >
+    <select onchange="<?php change_id();?>" class="form-select" id="myselect" style="width:25vw;" >
     <?php teacher_course_options(); ?>
     </select>
     </form>
-    <span id="mycourses">
 
+    <span id="mycourses">
+       <?php course_table($currentId); ?>
     </span>
+    
     </div>
     
     

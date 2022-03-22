@@ -145,4 +145,42 @@ function add_reward_points($score){
 
 }
 
+function create_course($courseName, $courseDescription, $subtitle, $paragraph){
+
+    $courseContent = "<h2>".$courseName."</h2><p>".$subtitle."</p><p>".$paragraph."</p>";
+
+    $sql = "INSERT INTO courses (courseName, courseDescription, teacherId, CourseSectorId, courseContent) VALUES ('".$courseName."', '".$courseDescription."', '".get_id_teacher()."', '1', '".$courseContent."')";
+
+    mysqli_query(get_conn(), $sql);
+
+
+}
+
+
+function enrol($studentId, $courseId){
+
+    $taken = mysqli_query(get_conn(), "SELECT enrolId FROM enrols WHERE courseId = '".$courseId."' AND studentId = '".$studentId."'");
+  
+    if (mysqli_num_rows($taken) != 0)
+    {
+    //results found
+    } else {
+    // results not found
+        $result = mysqli_query(get_conn(), 'SELECT teacherId FROM courses WHERE courseId = "'.$courseId.'"');
+        $date = date("Y-m-d");
+        
+        while ($row = $result->fetch_assoc()){
+            $teacherId = $row['teacherId'];
+        }
+        
+        mysqli_query(get_conn(), "INSERT INTO enrols (studentId, teacherId, courseId, currentProgress, dateOfEnrol)
+            VALUES ('".$studentId."', '".$teacherId."', '".$courseId."', '0', '".$date."')");
+        
+    }
+
+  
+    
+}
+
+
 ?>

@@ -70,7 +70,10 @@
     function teacher_course_options(){
 
         $conn = get_conn();
-        $result = mysqli_query($conn, "SELECT courseName FROM courses WHERE teacherId='".get_id_teacher()."'");
+        $result = mysqli_query($conn, "SELECT courseName, courses.courseId
+        FROM enrols
+        INNER JOIN courses
+        ON enrols.courseId = courses.courseId WHERE enrols.teacherId = '".get_id_teacher()."'");
 
         if($result->num_rows === 0){
         echo "<option value='none'>None</option>";
@@ -79,7 +82,7 @@
         else{
             while ($row = $result->fetch_assoc()) {
             
-                echo "<option name='courseOption' value='".$row['courseName']."' id='courseName' >".$row['courseName']."</option>";
+                echo "<option name='courseOption' value='".$row['courseId']."' id='courseName'>".$row['courseName']."</option>";
                 
             }
         }
@@ -123,13 +126,32 @@
         }
     }
 
-    function course_table($selected){
+    function course_table($courseId){
 
-        $sql = "SELECT fname, sname, currentProgress FROM enrols INNER JOIN students ON enrols.studentId = students.studentId WHERE courseId = '".$courseId."'";
-
-        $result = mysqli_query(get_conn(), $sql);
-        echo'adwdadwa';
+        echo '<table class="table" style="width:80%;" >
+            <tr>
+                <td>Name</td>
+                <td>Progress</td>
+                <td>Enrolment Date</td>
+            </tr>';
+            
+            $result = mysqli_query(get_conn(), "SELECT concat(fname, ' ', sname) as Name, currentProgress, dateOfEnrol FROM enrols INNER JOIN students ON enrols.studentId = students.studentId WHERE courseId = '".$courseId."'");
+            
+            while ($row = mysqli_fetch_array($result)) {
+                    echo '
+                    <tr>
+                    <td>'.$row['Name'].'</td>
+                    <td>'.$row['currentProgress'].'</td>
+                    <td>'.$row['dateOfEnrol'].'</td>
+                    </tr>';
+      
+            }
+            echo '</table>';
     }
 
-    
+    function phpfunction($value){
+        echo '<h1>';
+        echo $value;
+        echo '</h1>';
+    }
 ?>
